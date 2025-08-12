@@ -1,10 +1,16 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/jslab-ui',
+  resolve: {
+    alias: {
+      '@src': resolve(__dirname, './src'),
+    },
+  },
   server: {
     port: 4200,
     host: 'localhost',
@@ -19,7 +25,7 @@ export default defineConfig(() => ({
   //  plugins: [ nxViteTsPaths() ],
   // },
   build: {
-    outDir: './dist',
+    outDir: resolve(__dirname, '../../dist/apps/jslab-ui'),
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
