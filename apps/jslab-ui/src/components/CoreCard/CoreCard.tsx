@@ -31,6 +31,7 @@ export const CoreCard: React.FC<CoreCardProps> = ({ link, description, title }) 
       <div className="flex flex-col p-3">
         <GitHubLink link={link} title={title} />
         <Divider />
+        <Divider />
         <p className="text-left mt-3 mb-4">{description}</p>
       </div>
     </Item>

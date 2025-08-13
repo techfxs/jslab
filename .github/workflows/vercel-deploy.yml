@@ -1,4 +1,4 @@
-name: CI/CD - Deploy to Vercel
+name: CI/CD - Vercel
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm ci
-      - run: npx nx lint your-react-app
+      - run: npx nx lint jslab-ui
 
   test:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm ci
-      - run: npx nx test your-react-app
+      - run: npx nx test jslab-ui
 
   build:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm ci
-      - run: npx nx build your-react-app
+      - run: npx nx build jslab-ui
       - run: npm install -g vercel@latest
       - run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
